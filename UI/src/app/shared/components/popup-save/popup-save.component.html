@@ -1,0 +1,24 @@
+<dx-popup
+  [width]="300"
+  [height]="300"
+  [showTitle]="true"
+  title="Information"
+  [dragEnabled]="true"
+  [closeOnOutsideClick]="true"
+  [showCloseButton]="true"
+  container=".dx-viewport"
+  [(visible)]="isVisible"
+>
+  <dxi-toolbar-item
+    widget="dxButton"
+    toolbar="bottom"
+    location="after"
+    [options]="saveButtonOptions"
+  >
+  </dxi-toolbar-item>
+
+  <div *dxTemplate="let data of 'content'">
+    <div class="dx-field-label">Tên</div>
+    <dx-text-box [(value)]="nameModel"> </dx-text-box>
+  </div>
+</dx-popup>

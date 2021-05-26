@@ -1,0 +1,42 @@
+<h2 *ngIf="isDeleteMultilpe" class="content-block">
+  <div>
+    <dx-button text="Xoá nhiều" icon="trash"> </dx-button>
+  </div>
+</h2>
+<h2 *ngIf="!isDeleteMultilpe" class="content-block">
+  <div>{{ title }}</div>
+  <div>
+    <dx-button text="Thêm" icon="plus" (click)="addData()"> </dx-button>
+  </div>
+</h2>
+<div class="content-block">
+  <div class="dx-card responsive-paddings">
+    <dx-data-grid
+      #dataGridRef
+      [dataSource]="dataSource"
+      [hoverStateEnabled]="true"
+      keyExpr="id"
+      (onSelectionChanged)="onSelectionChanged($event)"
+    >
+      <dxi-column
+        *ngFor="let item of listColumns"
+        [caption]="item.caption"
+        [dataField]="item.dataField"
+        alignment="left"
+      >
+      </dxi-column>
+      <dxi-column cellTemplate="cellTemplate" alignment="right">
+        <div *dxTemplate="let data of 'cellTemplate'">
+          <dx-button icon="edit" (click)="updateData(data)"> </dx-button>
+          <dx-button icon="trash" (click)="deleteData()"> </dx-button>
+        </div>
+      </dxi-column>
+      <dxo-selection
+        mode="multiple"
+        selectAllMode="page"
+        showCheckBoxesMode="always"
+      ></dxo-selection>
+    </dx-data-grid>
+  </div>
+</div>
+<app-popup-save #popupSave> </app-popup-save>
