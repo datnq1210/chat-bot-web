@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\nqdat\\dev\\ChatBotWeb\\API\\Common\\Common.csproj",
+      "projectUniqueName": "C:\\Users\\nqdat\\dev\\chat-bot\\API\\Common\\Common.csproj",
       "projectName": "Common",
-      "projectPath": "C:\\Users\\nqdat\\dev\\ChatBotWeb\\API\\Common\\Common.csproj",
+      "projectPath": "C:\\Users\\nqdat\\dev\\chat-bot\\API\\Common\\Common.csproj",
       "packagesPath": "C:\\Users\\nqdat\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\nqdat\\dev\\ChatBotWeb\\API\\Common\\obj\\",
+      "outputPath": "C:\\Users\\nqdat\\dev\\chat-bot\\API\\Common\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\nqdat\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -60,7 +60,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
       }
     }
   }

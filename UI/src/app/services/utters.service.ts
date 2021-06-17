@@ -9,4 +9,5 @@ export class UttersService extends BaseService {
   constructor(private httpService: HttpClient) {
     super(httpService);
   }
+  controller = 'utters'
 }

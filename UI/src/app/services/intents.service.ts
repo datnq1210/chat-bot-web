@@ -9,4 +9,5 @@ export class IntentsService extends BaseService {
   constructor(private httpService: HttpClient){
     super(httpService);
   }
+  controller = 'intents';
 }

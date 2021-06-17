@@ -5536,11 +5536,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\nqdat\\dev\\ChatBotWeb\\API\\ChatBot\\ChatBotApi.csproj",
+      "projectUniqueName": "C:\\Users\\nqdat\\dev\\chat-bot\\API\\ChatBot\\ChatBotApi.csproj",
       "projectName": "ChatBotApi",
-      "projectPath": "C:\\Users\\nqdat\\dev\\ChatBotWeb\\API\\ChatBot\\ChatBotApi.csproj",
+      "projectPath": "C:\\Users\\nqdat\\dev\\chat-bot\\API\\ChatBot\\ChatBotApi.csproj",
       "packagesPath": "C:\\Users\\nqdat\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\nqdat\\dev\\ChatBotWeb\\API\\ChatBot\\obj\\",
+      "outputPath": "C:\\Users\\nqdat\\dev\\chat-bot\\API\\ChatBot\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\nqdat\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -5557,11 +5557,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\nqdat\\dev\\ChatBotWeb\\API\\BL\\BLL.csproj": {
-              "projectPath": "C:\\Users\\nqdat\\dev\\ChatBotWeb\\API\\BL\\BLL.csproj"
+            "C:\\Users\\nqdat\\dev\\chat-bot\\API\\BL\\BLL.csproj": {
+              "projectPath": "C:\\Users\\nqdat\\dev\\chat-bot\\API\\BL\\BLL.csproj"
             },
-            "C:\\Users\\nqdat\\dev\\ChatBotWeb\\API\\Common\\Common.csproj": {
-              "projectPath": "C:\\Users\\nqdat\\dev\\ChatBotWeb\\API\\Common\\Common.csproj"
+            "C:\\Users\\nqdat\\dev\\chat-bot\\API\\Common\\Common.csproj": {
+              "projectPath": "C:\\Users\\nqdat\\dev\\chat-bot\\API\\Common\\Common.csproj"
             }
           }
         }
@@ -5607,7 +5607,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
       }
     }
   }

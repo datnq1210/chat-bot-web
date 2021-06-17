@@ -22,3 +22,15 @@ C:\Users\nqdat\dev\ChatBotWeb\API\Model\obj\Debug\net5.0\Model.csproj.CoreCompil
 C:\Users\nqdat\dev\ChatBotWeb\API\Model\obj\Debug\net5.0\Model.dll
 C:\Users\nqdat\dev\ChatBotWeb\API\Model\obj\Debug\net5.0\ref\Model.dll
 C:\Users\nqdat\dev\ChatBotWeb\API\Model\obj\Debug\net5.0\Model.pdb
+C:\Users\nqdat\dev\chat-bot\API\Model\bin\Debug\net5.0\Model.deps.json
+C:\Users\nqdat\dev\chat-bot\API\Model\bin\Debug\net5.0\Model.dll
+C:\Users\nqdat\dev\chat-bot\API\Model\bin\Debug\net5.0\ref\Model.dll
+C:\Users\nqdat\dev\chat-bot\API\Model\bin\Debug\net5.0\Model.pdb
+C:\Users\nqdat\dev\chat-bot\API\Model\obj\Debug\net5.0\Model.csproj.AssemblyReference.cache
+C:\Users\nqdat\dev\chat-bot\API\Model\obj\Debug\net5.0\Model.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nqdat\dev\chat-bot\API\Model\obj\Debug\net5.0\Model.AssemblyInfoInputs.cache
+C:\Users\nqdat\dev\chat-bot\API\Model\obj\Debug\net5.0\Model.AssemblyInfo.cs
+C:\Users\nqdat\dev\chat-bot\API\Model\obj\Debug\net5.0\Model.csproj.CoreCompileInputs.cache
+C:\Users\nqdat\dev\chat-bot\API\Model\obj\Debug\net5.0\Model.dll
+C:\Users\nqdat\dev\chat-bot\API\Model\obj\Debug\net5.0\ref\Model.dll
+C:\Users\nqdat\dev\chat-bot\API\Model\obj\Debug\net5.0\Model.pdb

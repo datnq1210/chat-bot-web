@@ -1,6 +1,6 @@
 <h2 *ngIf="isDeleteMultilpe" class="content-block">
   <div>
-    <dx-button text="Xoá nhiều" icon="trash"> </dx-button>
+    <dx-button text="Xoá nhiều" icon="trash" (click)="deleteMutipleData()"> </dx-button>
   </div>
 </h2>
 <h2 *ngIf="!isDeleteMultilpe" class="content-block">
@@ -11,32 +11,31 @@
 </h2>
 <div class="content-block">
   <div class="dx-card responsive-paddings">
-    <dx-data-grid
-      #dataGridRef
-      [dataSource]="dataSource"
-      [hoverStateEnabled]="true"
-      keyExpr="id"
-      (onSelectionChanged)="onSelectionChanged($event)"
-    >
-      <dxi-column
-        *ngFor="let item of listColumns"
-        [caption]="item.caption"
-        [dataField]="item.dataField"
-        alignment="left"
-      >
+    <dx-data-grid #dataGridRef [dataSource]="dataSource" [hoverStateEnabled]="true" keyExpr="id"
+      (onSelectionChanged)="onSelectionChanged($event)">
+      <dxi-column *ngFor="let item of listColumns" [caption]="item.caption" [dataField]="item.dataField"
+        alignment="left">
       </dxi-column>
       <dxi-column cellTemplate="cellTemplate" alignment="right">
         <div *dxTemplate="let data of 'cellTemplate'">
           <dx-button icon="edit" (click)="updateData(data)"> </dx-button>
-          <dx-button icon="trash" (click)="deleteData()"> </dx-button>
+          <dx-button icon="trash" (click)="deleteData(data)"> </dx-button>
         </div>
       </dxi-column>
-      <dxo-selection
-        mode="multiple"
-        selectAllMode="page"
-        showCheckBoxesMode="always"
-      ></dxo-selection>
+      <dxo-selection mode="multiple" selectAllMode="page" showCheckBoxesMode="always"></dxo-selection>
     </dx-data-grid>
   </div>
 </div>
-<app-popup-save #popupSave> </app-popup-save>
+
+<dx-popup [width]="300" [height]="300" [showTitle]="true" [title]="popupTitlte" [dragEnabled]="true"
+  [closeOnOutsideClick]="true" [showCloseButton]="true" container=".dx-viewport" [(visible)]="isVisiblePopup">
+  <dxi-toolbar-item widget="dxButton" toolbar="bottom" location="after" [options]="saveButtonOptions">
+  </dxi-toolbar-item>
+
+  <div *dxTemplate="let data of 'content'">
+    <div class="dx-field-label">Tên</div>
+    <dx-text-box [(value)]="newObject.NewName">
+    </dx-text-box>
+    <div *ngIf="isEmptyTextBox" style="color: red; margin-top: 8px;">Không được để trống</div>
+  </div>
+</dx-popup>

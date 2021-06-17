@@ -45,5 +45,18 @@ namespace ChatBotApi.Controllers
             return Ok(_baseBL.DeleteData(id));
         }
 
+        [HttpPost("delete-multiple")]
+        public IActionResult DeleteMutiple([FromBody] List<T> listObj)
+        {
+            var listID = new List<int>();
+            foreach (var item in listObj)
+            {
+                var id = item.GetType().GetProperty("Id").GetValue(item);
+
+                listID.Add((int)id);
+            }
+            return Ok(_baseBL.DeleteMultipleData(listID));
+        }
     }
+
 }

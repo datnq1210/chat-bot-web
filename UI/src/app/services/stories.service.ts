@@ -9,4 +9,5 @@ export class StoriesService extends BaseService {
   constructor(private httpService: HttpClient) {
     super(httpService);
   }
+  controller = 'stories';
 }

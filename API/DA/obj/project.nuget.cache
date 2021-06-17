@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "mPq1aGkZ9dgyJZy1L6CdugVC1N6gZ9e9p7gmQBwl3n+TGhOHHKIS1S/1XGBALrX+FxeGqwU1v2CiqiRbet3/Xw==",
+  "dgSpecHash": "adsOw80mJYxcmgIVTH1zVvrxEsaSs0gpSPY0RSjdOP96BjnCbNK8n+Et5IixVICX9YSUw3Cd4DGzq5ShSi3ZMA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\nqdat\\dev\\ChatBotWeb\\API\\DA\\DAL.csproj",
+  "projectFilePath": "C:\\Users\\nqdat\\dev\\chat-bot\\API\\DA\\DAL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\nqdat\\.nuget\\packages\\bouncycastle.netcore\\1.8.5\\bouncycastle.netcore.1.8.5.nupkg.sha512",
     "C:\\Users\\nqdat\\.nuget\\packages\\dapper\\2.0.78\\dapper.2.0.78.nupkg.sha512",

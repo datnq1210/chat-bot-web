@@ -1,5 +1,5 @@
-<app-data-grid
-  [dataSource]="listIntents"
-  [listColumns]="listColumns"
-  [title]="'Intents'"
-></app-data-grid>
+<app-data-grid #dataGrid [dataSource]="listIntents" [listColumns]="listColumns" [title]="'Intents'"
+  (onSaveName)="onSaveName($event)"
+  (onDelete)="onDelete($event)"
+  (onDeleteMultiple)="onDeleteMultiple($event)"
+  ></app-data-grid>

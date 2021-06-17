@@ -22,7 +22,7 @@ namespace BLL.Implement
 
         public ServiceResult GetAllData()
         {
-            var sqlCommand = $"SELECT * FROM {_tableName}";
+            var sqlCommand = $"SELECT * FROM {_tableName} ORDER BY updated_at DESC";
             var res = _baseDA.QueryUsingCommandText<T>(sqlCommand);
             if (res.FirstOrDefault() != null)
             {
@@ -37,7 +37,7 @@ namespace BLL.Implement
 
         public ServiceResult InsertData(T model)
         {
-            var param = ToDicionary(model);
+            var param = ToDicionary(generateGuid(model));
             var sqlCommand = "INSERT INTO {0} ({1}) VALUES ({2})";
             var length = param.Count;
             var paramNameTxt = "";
@@ -55,6 +55,10 @@ namespace BLL.Implement
                     columnNameTxt += ",";
                 }
             }
+            paramNameTxt += ",@created_at,@updated_at";
+            columnNameTxt += ",created_at,updated_at";
+            param.Add("@created_at", DateTime.Now);
+            param.Add("@updated_at", DateTime.Now);
             sqlCommand = string.Format(sqlCommand, _tableName, columnNameTxt, paramNameTxt);
             var res = _baseDA.ExecuteUsingCommandText(sqlCommand, param);
             _serviceResult.Data = res;
@@ -91,8 +95,9 @@ namespace BLL.Implement
                 {
                     updateParamTxt += ",";
                 }
-
             }
+            updateParamTxt += ", updated_at = @updated_at";
+            param.Add("@updated_at", DateTime.Now);
             sqlCommand = string.Format(sqlCommand, _tableName, updateParamTxt);
             var res = _baseDA.ExecuteUsingCommandText(sqlCommand, param);
             _serviceResult.Data = res;
@@ -131,8 +136,8 @@ namespace BLL.Implement
         }
         public ServiceResult DeleteMultipleData(List<int> ids)
         {
-            var listId = ids.Select(id => string.Join(",", id));
-            var sqlCommand = $"DELETE {_tableName} WHERE id IN ({listId})";
+            var listId = string.Join(",", ids);
+            var sqlCommand = $"DELETE FROM {_tableName} WHERE id IN ({listId})";
             var res = _baseDA.ExecuteUsingCommandText(sqlCommand);
             _serviceResult.Data = res;
             if (res > 0)
@@ -170,6 +175,21 @@ namespace BLL.Implement
             serviceResult.DevMessage = devMsg;
             serviceResult.Data = data;
             return serviceResult;
+        }
+
+        /// <summary>
+        /// gen uuid cho thuộc tính kiểu guid của đối tượng
+        /// </summary>
+        /// <returns></returns>
+        private T generateGuid(T model)
+        {
+            var property = model.GetType().GetProperties().Where(x => x.PropertyType == typeof(Guid)).FirstOrDefault();
+            if (property != null)
+            {
+                var propName = property.Name;
+                model.GetType().GetProperty(propName).SetValue(model, Guid.NewGuid());
+            }
+            return model;
         }
 
     }

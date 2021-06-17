@@ -1,5 +1,8 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import dxButton from 'devextreme/ui/button';
 import { confirm, custom } from 'devextreme/ui/dialog';
+import notify from 'devextreme/ui/notify';
+import { FormMode } from '../../enum/form-mode.enum';
 
 @Component({
   selector: 'app-data-grid',
@@ -17,15 +20,32 @@ export class DataGridComponent implements OnInit {
   @Input()
   titlte: string;
 
-  @Input()
-  popupTitlte: string;
 
+  @Output()
+  selectedItem: any = new EventEmitter<any>();
+
+  @Output()
+  onSaveName: any = new EventEmitter<any>();
+
+  @Output()
+  onDelete: any = new EventEmitter<any>();
+
+  @Output()
+  onDeleteMultiple: any = new EventEmitter<any>();
   //#endregion
 
   //#region properties
   isDeleteMultilpe: boolean = false;
   selectedRow: any;
-  isVisiblePopupSave: boolean = false;
+  isVisiblePopup: boolean;
+  popupTitlte: string;
+  saveButtonOptions;
+  newObject = {
+    Id: null,
+    NewName: null,
+    State: 0
+  };
+  isEmptyTextBox = false;
   //#endregion
 
   //#region viewchild
@@ -34,28 +54,58 @@ export class DataGridComponent implements OnInit {
   //#endregion
 
   //#region Constructor
-  constructor() {}
+  constructor() {
+    var me = this;
+    this.saveButtonOptions = {
+      icon: 'save',
+      text: 'Save',
+      onClick: function (e) {
+        me.saveData();
+      },
+    };
+  }
   //#endregion
 
   //#region life cycle
-  ngOnInit(): void {}
+  ngOnInit(): void { }
   //#endregion
 
   //#region methods
   addData() {
-    this.popupSave.openPoup();
+    this.isVisiblePopup = true;
+    this.popupTitlte = "Thêm";
+    this.newObject.NewName = '';
+    this.newObject.State = FormMode.Insert;
   }
 
   updateData(e) {
-    console.log(e.row.data);
+    this.isVisiblePopup = true;
+    this.popupTitlte = "Sửa";
+    this.newObject = e.row.data;
+    this.newObject.State = FormMode.Update;
+    this.newObject.NewName = this.newObject['name'];
   }
 
-  deleteData() {
-    this.confirmDialog()
+  deleteData(e) {
+    var message = "Bạn có chắc chắn muốn xóa bản ghi này không?";
+    this.confirmDialog(message)
       .show()
       .then((res) => {
         if (res) {
-          console.log(this.dataGrid.instance.getSelectedRowsData());
+          // console.log(this.dataGrid.instance.getSelectedRowsData());
+          const id = e.row.data.id;
+          this.onDelete.emit(id);
+        }
+      });
+  }
+
+  deleteMutipleData() {
+    var message = "Bạn có chắc chắn muốn xóa những bản ghi này không?";
+    this.confirmDialog(message)
+      .show()
+      .then((res) => {
+        if (res) {
+          this.onDeleteMultiple.emit(this.dataGrid.instance.getSelectedRowsData());
         }
       });
   }
@@ -69,11 +119,10 @@ export class DataGridComponent implements OnInit {
     }
   }
 
-  confirmDialog() {
+  confirmDialog(message) {
     let myDialog = custom({
       title: 'Cảnh báo',
-      messageHtml:
-        '<b style="font-size: 16px; color: red">Bạn có chắc chắn muốn xoá bản ghi này không?</b>',
+      messageHtml: `<b style="font-size: 16px; color: red">${message}</b>`,
       buttons: [
         {
           text: 'Huỷ',
@@ -90,6 +139,24 @@ export class DataGridComponent implements OnInit {
       ],
     });
     return myDialog;
+  }
+
+  saveData() {
+    if (this.newObject.NewName && this.newObject.NewName.trim() != '') {
+      this.onSaveName.emit(this.newObject);
+      this.isEmptyTextBox = false;
+    }
+    else {
+      this.isEmptyTextBox = true;
+    }
+  }
+
+  openPoup() {
+    this.isVisiblePopup = true;
+  }
+
+  closePopup() {
+    this.isVisiblePopup = false;
   }
   //#endregion
 }

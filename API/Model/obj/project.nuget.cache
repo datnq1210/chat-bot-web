@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Hxd0TvkTSs7gOz0B60Dx8tKU/IyWJbFgoJ58qpg6lxkF+rfxHOMqRlTo+0XhpewIjh0HcTZAjNE4pBg2/OOKFA==",
+  "dgSpecHash": "AcqYd3xdjWgiVNQdH/aLLyRMZPX+o1pegiWaRVMmbRTSULKoggXlBFHtWywnKx14eqzmQTZuCeJmz/MTQg1/vw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\nqdat\\dev\\ChatBotWeb\\API\\Model\\Model.csproj",
+  "projectFilePath": "C:\\Users\\nqdat\\dev\\chat-bot\\API\\Model\\Model.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

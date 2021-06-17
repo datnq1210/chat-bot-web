@@ -1,6 +1,3 @@
-<app-data-grid
-  [dataSource]="listUtters"
-  [listColumns]="listColumns"
-  [title]="'Utters'"
->
+<app-data-grid #dataGrid [dataSource]="listUtters" [listColumns]="listColumns" [title]="'Utters'"
+  (onSaveName)="onSaveName($event)" (onDelete)="onDelete($event)" (onDeleteMultiple)="onDeleteMultiple($event)">
 </app-data-grid>

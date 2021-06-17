@@ -7,21 +7,33 @@ import { environment } from '../../environments/environment';
   providedIn: 'root',
 })
 export class BaseService {
-  constructor(public http: HttpClient) {}
+  constructor(public http: HttpClient) {
 
-  getAllData(path): Observable<any> {
-    return this.http.get<any>(environment.apiUrl + path);
+  }
+  host = environment.host;
+  controller = "";
+
+  getApiUrl(): string {
+    return `${this.host}/api/v1/${this.controller}`;
   }
 
-  insertData(path, param): Observable<any> {
-    return this.http.post<any>(environment.apiUrl + path, param);
+  getAllData(): Observable<any> {
+    return this.http.get<any>(this.getApiUrl());
   }
 
-  updateData(path, param): Observable<any> {
-    return this.http.put<any>(environment.apiUrl + path, param);
+  insertData(param): Observable<any> {
+    return this.http.post<any>(this.getApiUrl(), param);
   }
 
-  deleteData(path, param): Observable<any> {
-    return this.http.delete<any>(environment.apiUrl + path, param);
+  updateData(param): Observable<any> {
+    return this.http.put<any>(this.getApiUrl(), param);
+  }
+
+  deleteData(id): Observable<any> {
+    return this.http.delete<any>(`${this.getApiUrl()}/${id}`);
+  }
+
+  deleteMultipleData(listIttemDelete): Observable<any> {
+    return this.http.post<any>(`${this.getApiUrl()}/delete-multiple`, listIttemDelete);
   }
 }

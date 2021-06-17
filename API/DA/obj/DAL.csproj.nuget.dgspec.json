@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\nqdat\\dev\\ChatBotWeb\\API\\DA\\DAL.csproj": {}
+    "C:\\Users\\nqdat\\dev\\chat-bot\\API\\DA\\DAL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\nqdat\\dev\\ChatBotWeb\\API\\DA\\DAL.csproj": {
+    "C:\\Users\\nqdat\\dev\\chat-bot\\API\\DA\\DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nqdat\\dev\\ChatBotWeb\\API\\DA\\DAL.csproj",
+        "projectUniqueName": "C:\\Users\\nqdat\\dev\\chat-bot\\API\\DA\\DAL.csproj",
         "projectName": "DAL",
-        "projectPath": "C:\\Users\\nqdat\\dev\\ChatBotWeb\\API\\DA\\DAL.csproj",
+        "projectPath": "C:\\Users\\nqdat\\dev\\chat-bot\\API\\DA\\DAL.csproj",
         "packagesPath": "C:\\Users\\nqdat\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nqdat\\dev\\ChatBotWeb\\API\\DA\\obj\\",
+        "outputPath": "C:\\Users\\nqdat\\dev\\chat-bot\\API\\DA\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\nqdat\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -68,7 +68,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }
