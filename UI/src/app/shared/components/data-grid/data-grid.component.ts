@@ -20,6 +20,8 @@ export class DataGridComponent implements OnInit {
   @Input()
   titlte: string;
 
+  @Input()
+  loadingVisible: boolean;
 
   @Output()
   selectedItem: any = new EventEmitter<any>();
@@ -40,6 +42,8 @@ export class DataGridComponent implements OnInit {
   isVisiblePopup: boolean;
   popupTitlte: string;
   saveButtonOptions;
+  fileUploadForm;
+  fileInputLabel;
   newObject = {
     Id: null,
     NewName: null,
@@ -58,7 +62,7 @@ export class DataGridComponent implements OnInit {
     var me = this;
     this.saveButtonOptions = {
       icon: 'save',
-      text: 'Save',
+      text: 'Lưu',
       onClick: function (e) {
         me.saveData();
       },
@@ -146,6 +150,7 @@ export class DataGridComponent implements OnInit {
       this.onSaveName.emit(this.newObject);
       this.isEmptyTextBox = false;
     }
+    
     else {
       this.isEmptyTextBox = true;
     }
@@ -158,5 +163,6 @@ export class DataGridComponent implements OnInit {
   closePopup() {
     this.isVisiblePopup = false;
   }
+
   //#endregion
 }

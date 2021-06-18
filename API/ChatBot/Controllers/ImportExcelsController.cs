@@ -23,9 +23,9 @@ namespace ChatBotApi.Controllers
         }
 
         [HttpPost]
-        public IActionResult Upload(IFormFile file)
+        public IActionResult Upload(IFormFile formFile)
         {
-            return Ok(_importExcelBL.InsertDataFromExcelFile(file));
+            return Ok(_importExcelBL.InsertDataFromExcelFile(formFile));
         }
     }
 }

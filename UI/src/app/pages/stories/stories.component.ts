@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import notify from 'devextreme/ui/notify';
 import { StoriesService } from 'src/app/services/stories.service';
 import { FormMode } from 'src/app/shared/enum/form-mode.enum';
 
@@ -17,15 +18,20 @@ export class StoriesComponent implements OnInit {
     { caption: "id", dataField: "id" },
     { caption: "Tên Story", dataField: "name" },
   ];
-
+  loadingVisible: boolean;
   ngOnInit(): void {
     this.getStories();
   }
 
   getStories(): void {
+    this.loadingVisible = true;
     this.storiesService.getAllData().subscribe((res) => {
       if (res && res.data) {
+        this.loadingVisible = false;
         this.listStories = res.data;
+      }
+      else {
+        notify(res.userMessage, 'error');
       }
     });
   }
@@ -34,8 +40,12 @@ export class StoriesComponent implements OnInit {
     if (e.State == FormMode.Insert) {
       this.storiesService.insertData({ name: e.NewName }).subscribe(res => {
         if (res && res.success) {
+          notify(res.userMessage, 'success');
           this.dataGrid.closePopup();
           this.getStories();
+        }
+        else {
+          notify(res.userMessage, 'error');
         }
       });
     }
@@ -46,8 +56,12 @@ export class StoriesComponent implements OnInit {
         intent_uuid: e.intent_uuid
       }).subscribe(res => {
         if (res && res.success) {
+          notify(res.userMessage, 'success');
           this.dataGrid.closePopup();
           this.getStories();
+        }
+        else {
+          notify(res.userMessage, 'error');
         }
       });
     }
@@ -56,7 +70,11 @@ export class StoriesComponent implements OnInit {
   onDelete(id): void {
     this.storiesService.deleteData(id).subscribe(res => {
       if (res && res.success) {
+        notify(res.userMessage, 'success');
         this.getStories();
+      }
+      else {
+        notify(res.userMessage, 'error');
       }
     })
   }
@@ -65,7 +83,11 @@ export class StoriesComponent implements OnInit {
     console.log(listIttemDelete);
     this.storiesService.deleteMultipleData(listIttemDelete).subscribe(res => {
       if (res && res.success) {
+        notify(res.userMessage, 'success');
         this.getStories();
+      }
+      else {
+        notify(res.userMessage, 'error');
       }
     })
   }

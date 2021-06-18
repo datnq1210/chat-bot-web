@@ -3,10 +3,26 @@
 </h2>
 <h2 class="content-block">
   <div>{{ "Nhập liệu data" }}</div>
-  <div>
-    <dx-button text="Nhập liệu bằng excel" icon="plus"> </dx-button>
-  </div>
 </h2>
 <h2 class="content-block">
-  <dx-data-grid height="100%"></dx-data-grid>
+  <form id="form-import" [formGroup]="fileUploadForm" (ngSubmit)="onFormSubmit()">
+    <div class="row">
+      <div class="col-sm-6 text-center">
+        <div class="custom-file">
+          <input type="file" class="custom-file-input" id="customFile" name="myfile" (change)="onFileSelect($event)"
+            #UploadFileInput>
+          <label class="custom-file-label" for="customFile">
+            {{ fileInputLabel || 'Chọn file (*.xlsx, *.xls)'}}
+          </label>
+        </div>
+      </div>
+      <div class="btn-submit">
+        <dx-button icon="upload" [useSubmitBehavior]="true" text="Tải lên"></dx-button>
+      </div>
+    </div>
+  </form>
 </h2>
+
+<dx-load-panel #loadPanel shadingColor="rgba(0,0,0,0.5)" [(visible)]="loadingVisible"
+  [showIndicator]="true" [showPane]="true" [shading]="true" [closeOnOutsideClick]="false">
+</dx-load-panel>

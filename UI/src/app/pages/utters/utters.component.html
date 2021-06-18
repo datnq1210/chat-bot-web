@@ -1,3 +1,7 @@
 <app-data-grid #dataGrid [dataSource]="listUtters" [listColumns]="listColumns" [title]="'Utters'"
   (onSaveName)="onSaveName($event)" (onDelete)="onDelete($event)" (onDeleteMultiple)="onDeleteMultiple($event)">
 </app-data-grid>
+
+<dx-load-panel #loadPanel shadingColor="rgba(0,0,0,0.5)" [(visible)]="loadingVisible" [showIndicator]="true"
+  [showPane]="true" [shading]="true" [closeOnOutsideClick]="false">
+</dx-load-panel>

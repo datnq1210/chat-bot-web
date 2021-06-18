@@ -23,11 +23,14 @@
         </div>
       </dxi-column>
       <dxo-selection mode="multiple" selectAllMode="page" showCheckBoxesMode="always"></dxo-selection>
+      <dxo-pager [showInfo]="true" infoText="Trang {0} trên {1} ({2} bản ghi)" [showNavigationButtons]="true"
+        [showPageSizeSelector]="true" [allowedPageSizes]="[25,50,100]">
+      </dxo-pager>
     </dx-data-grid>
   </div>
 </div>
 
-<dx-popup [width]="300" [height]="300" [showTitle]="true" [title]="popupTitlte" [dragEnabled]="true"
+<dx-popup width="400" height="300" [showTitle]="true" [title]="popupTitlte" [dragEnabled]="true"
   [closeOnOutsideClick]="true" [showCloseButton]="true" container=".dx-viewport" [(visible)]="isVisiblePopup">
   <dxi-toolbar-item widget="dxButton" toolbar="bottom" location="after" [options]="saveButtonOptions">
   </dxi-toolbar-item>

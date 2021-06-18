@@ -22,7 +22,13 @@
   width: 22px;
   height: 22px;
 }
-
+.home-background {
+  width: 100%;
+  height: calc(100vh - 175px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 :host-context(.screen-x-small) .logos-container {
   svg {
     width: 100%;
@@ -32,3 +38,5 @@
     }
   }
 }
+
+

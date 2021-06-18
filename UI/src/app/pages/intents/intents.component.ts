@@ -17,6 +17,8 @@ export class IntentsComponent implements OnInit {
     { caption: 'Tên intent', dataField: 'name' },
   ];
 
+  loadingVisible: boolean;
+
   @ViewChild('dataGrid', { static: false }) dataGrid;
 
 
@@ -25,9 +27,11 @@ export class IntentsComponent implements OnInit {
   }
 
   getIntents(): void {
+    this.loadingVisible = true;
     this.intentsService.getAllData().subscribe((res) => {
       if (res && res.data) {
         this.listIntents = res.data;
+        this.loadingVisible = false;
       }
     });
   }
@@ -36,8 +40,12 @@ export class IntentsComponent implements OnInit {
     if (e.State == FormMode.Insert) {
       this.intentsService.insertData({ name: e.NewName }).subscribe(res => {
         if (res && res.success) {
+          notify(res.userMessage, 'success');
           this.dataGrid.closePopup();
           this.getIntents();
+        }
+        else {
+          notify(res.userMessage, 'error');
         }
       });
     }
@@ -48,8 +56,12 @@ export class IntentsComponent implements OnInit {
         intent_uuid: e.intent_uuid
       }).subscribe(res => {
         if (res && res.success) {
+          notify(res.userMessage, 'success');
           this.dataGrid.closePopup();
           this.getIntents();
+        }
+        else {
+          notify(res.userMessage, 'error');
         }
       });
     }
@@ -58,7 +70,11 @@ export class IntentsComponent implements OnInit {
   onDelete(id): void {
     this.intentsService.deleteData(id).subscribe(res => {
       if (res && res.success) {
+        notify(res.userMessage, 'success');
         this.getIntents();
+      }
+      else {
+        notify(res.userMessage, 'error');
       }
     })
   }
@@ -67,7 +83,11 @@ export class IntentsComponent implements OnInit {
     console.log(listIttemDelete);
     this.intentsService.deleteMultipleData(listIttemDelete).subscribe(res => {
       if (res && res.success) {
+        notify(res.userMessage, 'success');
         this.getIntents();
+      }
+      else {
+        notify(res.userMessage, 'error');
       }
     })
   }
