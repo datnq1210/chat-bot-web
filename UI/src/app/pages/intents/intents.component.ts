@@ -33,6 +33,10 @@ export class IntentsComponent implements OnInit {
         this.listIntents = res.data;
         this.loadingVisible = false;
       }
+    }, error => {
+      console.error(error);
+      this.loadingVisible = false;
+      notify("Kết nối đến server thất bại", 'error');
     });
   }
 

@@ -33,6 +33,10 @@ export class StoriesComponent implements OnInit {
       else {
         notify(res.userMessage, 'error');
       }
+    }, error => {
+      console.error(error);
+      this.loadingVisible = false;
+      notify("Kết nối đến server thất bại", 'error');
     });
   }
 

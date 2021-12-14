@@ -18,10 +18,13 @@ export class DataGridComponent implements OnInit {
   listColumns = [];
 
   @Input()
-  titlte: string;
+  title: string;
 
   @Input()
   loadingVisible: boolean;
+
+  @Output()
+  loadingVisibleChange: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   @Output()
   selectedItem: any = new EventEmitter<any>();
