@@ -2,10 +2,7 @@ import { Injectable } from '@angular/core';
 import { CanActivate, Router, ActivatedRouteSnapshot } from '@angular/router';
 
 const defaultPath = '/';
-const defaultUser = {
-  email: 'chatbot@gmail.com',
-  avatarUrl: 'https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/images/employees/06.png'
-};
+let defaultUser: any;
 
 @Injectable()
 export class AuthService {

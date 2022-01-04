@@ -16,7 +16,7 @@
           </label>
         </div>
       </div>
-      <div class="btn-submit">
+      <div *ngIf="isFileSelected" class="btn-submit">
         <dx-button icon="upload" [useSubmitBehavior]="true" text="Tải lên"></dx-button>
       </div>
     </div>

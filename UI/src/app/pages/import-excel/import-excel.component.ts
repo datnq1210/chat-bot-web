@@ -18,6 +18,8 @@ export class ImportExcelComponent implements OnInit {
   fileUploadForm: FormGroup;
   fileInputLabel: string;
   loadingVisible: boolean;
+  isFileSelected: boolean = false;
+
   ngOnInit(): void {
     this.fileUploadForm = this.formBuilder.group({
       myfile: ['']
@@ -35,6 +37,7 @@ export class ImportExcelComponent implements OnInit {
       } else {
         this.fileInputLabel = file.name;
         this.fileUploadForm.get('myfile').setValue(file);
+        this.isFileSelected = true;
       }
     }
   }
