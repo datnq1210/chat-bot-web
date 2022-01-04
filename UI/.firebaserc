@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "chat-bot-management": {
+      "hosting": {
+        "ChatBotWeb": [
+          "chat-bot-management"
+        ]
+      }
+    }
+  }
+}
